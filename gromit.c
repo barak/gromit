@@ -1043,9 +1043,16 @@ parse_config (GromitData *data)
 
   if (file < 0)
     {
-      g_printerr ("Could not open %s: %s\n", filename, g_strerror (errno));
-      g_free (filename);
-      return;
+      g_free(filename);
+      /* try global config file */
+      filename = g_strdup("/etc/gromit/gromitrc");
+      file = open (filename, O_RDONLY);
+      if (file < 0)
+        {
+          g_printerr ("Could not open %s: %s\n", filename, g_strerror (errno));
+          g_free (filename);
+          return;
+        }
     }
 
   scanner = g_scanner_new (NULL);

@@ -1,0 +1,18 @@
+Source: gromit
+Section: x11
+Priority: optional
+Maintainer: Pierre Chifflier <chifflier@cpe.fr>
+Build-Depends: debhelper (>= 4.0.0), libgtk2.0-dev
+Standards-Version: 3.6.1
+
+Package: gromit
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: GTK based tool to make annotations on screen
+ Gromit enables you to make annotations on your screen.
+ .
+ This is especially useful when making presentations, to highlight
+ things or point ou things of interest.
+ .
+ Gromit is XInput-Aware, so if you have a graphic tablet you can
+ draw lines with different strength, color, erase things, etc.

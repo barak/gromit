@@ -1,0 +1,85 @@
+.\"                                      Hey, vim: ft=nroff
+.TH GROMIT 1 "janvier  9, 2005"
+.\" Please adjust this date whenever revising the manpage.
+.\"
+.\" Some roff macros, for reference:
+.\" .nh        disable hyphenation
+.\" .hy        enable hyphenation
+.\" .ad l      left justify
+.\" .ad b      justify to both left and right margins
+.\" .nf        disable filling
+.\" .fi        enable filling
+.\" .br        insert line break
+.\" .sp <n>    insert n+1 empty lines
+.\" for manpage-specific macros, see man(7)
+.SH NAME
+gromit \- GTK based tool to make annotations on screen
+.SH SYNOPSIS
+.B gromit
+.RI [ options ]
+.br
+.SH DESCRIPTION
+\fBGromit\fP enables you to make annotations on your screen.
+.br
+\fBGromit\fP is XInput-Aware, so if you have a graphic tablet you can
+draw lines with different strength or color, erase things, etc.
+.br
+To enable gromit, you need a special command to make gromit grab the mouse,
+since you typically want to use the program you are demonstrating and
+highlighting something is a short interruption of you workflow.
+.br
+By default, gromit grabs the "Pause" key (it can be changed using the
+"--key" option), so that no other application can use it. The
+available commands are:
+.TP
+.B Pause
+toggle painting
+.TP
+.B SHIFT-Pause
+clear screen
+.TP
+.B CTRL-Pause
+toggle visibility
+.TP
+.B ALT-Pause
+quit grommit
+.PP
+.SH OPTIONS
+These programs follows the usual GNU command line syntax, with long
+options starting with two dashes (`-').
+A summary of options is included below.
+.TP
+.B \-q, \-\-quit
+will cause the main Gromit process to quit.
+.TP
+.B \-t, \-\-toggle
+will toggle the grabbing of the cursor.
+.TP
+.B \-v, \-\-visibility
+will toggle the visibility of the window.
+.TP
+.B \-c, \-\-clear
+will clear the screen.
+.TP
+.B \-k, \-\-key
+will change the key used to grab the mouse.
+.SH BUGS
+Gromit may drastically slow down your X-Server, especially when you draw
+very thin lines. It makes heavily use of the shape extension, which is
+quite expensive if you paint a complex pattern on screen. Especially
+terminal-programs tend to scroll incredibly slow if something is painted
+over their window. There is nothing I can do about this.
+.br
+Gromit partially disables DnD, since it lays a transparent window across
+the whole screen and everything gets "dropped" to this (invisible)
+window. Gromit tries to minimize this effect: When you clear the screen
+the shaped window will be hidden. It will be resurrected, when you want
+to paint something again. However: The window does not hide, if you
+erase everything with the eraser tool, you have to clear the screen
+explicitely with the "gromit --clear" command or hide Gromit with
+"gromit --visibility".
+.SH AUTHOR
+gromit was written by Simon Budig <simon@gimp.org>.
+.PP
+This manual page was written by Pierre Chifflier <chifflier@cpe.fr>,
+for the Debian project (but may be used by others).
