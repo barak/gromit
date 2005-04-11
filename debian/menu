@@ -1,0 +1,9 @@
+?package(gromit):					\
+	needs="X11"					\
+	section="Apps/Graphics"				\
+	title="Gromit"					\
+	command="/usr/bin/gromit"			\
+	description="On screen display annotator"	\
+	hints="X11"					\
+	icon="/usr/share/pixmaps/gromit.xpm"		\
+	longtitle="Gromit Presentation Helper"

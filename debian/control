@@ -12,7 +12,7 @@ Description: GTK based tool to make annotations on screen
  Gromit enables you to make annotations on your screen.
  .
  This is especially useful when making presentations, to highlight
- things or point ou things of interest.
+ things or point out things of interest.
  .
  Gromit is XInput-Aware, so if you have a graphic tablet you can
  draw lines with different strength, color, erase things, etc.

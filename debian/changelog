@@ -1,3 +1,11 @@
+gromit (20041213-2) unstable; urgency=low
+
+  * Corrected typo in package description (Closes: #303513)
+  * Updated manpage (Closes: #301593)
+  * Added watchfile, menu entry and xpm
+
+ -- Pierre Chifflier <chifflier@cpe.fr>  Mon, 11 Apr 2005 15:24:49 +0200
+
 gromit (20041213-1) unstable; urgency=low
 
   * Initial Release (Closes: #289545)

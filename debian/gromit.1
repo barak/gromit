@@ -1,5 +1,5 @@
 .\"                                      Hey, vim: ft=nroff
-.TH GROMIT 1 "janvier  9, 2005"
+.TH GROMIT 1 "January 16, 2005"
 .\" Please adjust this date whenever revising the manpage.
 .\"
 .\" Some roff macros, for reference:
@@ -13,24 +13,29 @@
 .\" .sp <n>    insert n+1 empty lines
 .\" for manpage-specific macros, see man(7)
 .SH NAME
-gromit \- GTK based tool to make annotations on screen
+Gromit \- Presentation helper to make annotations on screen
 .SH SYNOPSIS
 .B gromit
 .RI [ options ]
 .br
 .SH DESCRIPTION
-\fBGromit\fP enables you to make annotations on your screen.
+\fBGromit\fP enables you to make annotations on your screen. It can run in
+the background and be activated on demand to let you draw over all your
+currently running applications. The drawing will stay on screen as long as you
+want, you can continue to use your applications while the drawing is visible.
 .br
 \fBGromit\fP is XInput-Aware, so if you have a graphic tablet you can
-draw lines with different strength or color, erase things, etc.
+draw lines with different strength, color, erase things, etc.
 .br
-To enable gromit, you need a special command to make gromit grab the mouse,
-since you typically want to use the program you are demonstrating and
-highlighting something is a short interruption of you workflow.
+Since you typically want to use the program you are demonstrating and
+highlighting something is a short interruption of you workflow,
+Gromit is activated by either a hotkey or a repeated invokation of Gromit
+(the latter can e.g. used by other applications or your windowmanager).
 .br
-By default, gromit grabs the "Pause" key (it can be changed using the
-"--key" option), so that no other application can use it. The
-available commands are:
+.SH KEYBOARD CONTROL
+By default, Gromit grabs the "Pause" key (this can be change using the
+"--key" option), making it unavailable to other application. The
+available shortcuts are:
 .TP
 .B Pause
 toggle painting
@@ -42,12 +47,32 @@ clear screen
 toggle visibility
 .TP
 .B ALT-Pause
-quit grommit
+quit Gromit
 .PP
-.SH OPTIONS
-These programs follows the usual GNU command line syntax, with long
-options starting with two dashes (`-').
-A summary of options is included below.
+.SH OPTIONS (STARTUP)
+A short summary of the available commandline arguments for invoking Gromit, see
+below for the options to control an already running Gromit process:
+.TP
+.B \-a, \-\-active
+start Gromit and immediately activate it.
+.TP
+.B \-k <keysym>, \-\-key <keysym>
+will change the key used to grab the mouse. <keysym> can e.g. be
+"Pause", "F12", "Control_R" or "Print". To determine the keysym for
+different keys you can use the \fBxev\fP(1) command. You can specify "none"
+to prevent Gromit from grabbing a key.
+.TP
+.B \-K <keycode>, \-\-keycode <keycode>
+will change the key used to grab the mouse. Under rare circumstances
+identifying the key with the keysym can fail. You can then use the keycode
+to specify the key uniquely. To determine the keycode for different keys you
+can use the \fBxev\fP(1) command.
+.TP
+.B \-d, \-\-debug
+gives some debug output.
+.SH OPTIONS (CONTROL)
+A sort summary of the available commandline arguments to control an already
+running Gromit process, see above for the options available to start Gromit.
 .TP
 .B \-q, \-\-quit
 will cause the main Gromit process to quit.
@@ -60,9 +85,6 @@ will toggle the visibility of the window.
 .TP
 .B \-c, \-\-clear
 will clear the screen.
-.TP
-.B \-k, \-\-key
-will change the key used to grab the mouse.
 .SH BUGS
 Gromit may drastically slow down your X-Server, especially when you draw
 very thin lines. It makes heavily use of the shape extension, which is
@@ -79,7 +101,7 @@ erase everything with the eraser tool, you have to clear the screen
 explicitely with the "gromit --clear" command or hide Gromit with
 "gromit --visibility".
 .SH AUTHOR
-gromit was written by Simon Budig <simon@gimp.org>.
+Simon Budig <simon@gimp.org>
 .PP
-This manual page was written by Pierre Chifflier <chifflier@cpe.fr>,
-for the Debian project (but may be used by others).
+This manual page was written by Pierre Chifflier <chifflier@cpe.fr> and
+Simon Budig.
