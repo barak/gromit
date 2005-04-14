@@ -93,6 +93,7 @@ typedef struct
   GdkPixmap   *pixmap;
   GdkDisplay  *display;
   GdkScreen   *screen;
+  gboolean     xinerama;
   GdkWindow   *root;
   gchar       *hot_keyval;
   guint        hot_keycode;
@@ -731,7 +732,7 @@ paintto (GtkWidget *win,
                                 &coords, &nevents);
 
   /* g_printerr ("Got %d coords\n", nevents); */
-  if (coords)
+  if (!data->xinerama && nevents > 0)
     {
       for (i=0; i < nevents; i++)
         {
@@ -1043,10 +1044,11 @@ parse_config (GromitData *data)
 
   if (file < 0)
     {
-      g_free(filename);
       /* try global config file */
-      filename = g_strdup("/etc/gromit/gromitrc");
+      g_free (filename);
+      filename = g_strdup ("/etc/gromit/gromitrc");
       file = open (filename, O_RDONLY);
+
       if (file < 0)
         {
           g_printerr ("Could not open %s: %s\n", filename, g_strerror (errno));
@@ -1313,6 +1315,7 @@ setup_client_app (GromitData *data)
 {
   data->display = gdk_display_get_default ();
   data->screen = gdk_display_get_default_screen (data->display);
+  data->xinerama = gdk_screen_get_n_monitors (data->screen) > 1;
   data->root = gdk_screen_get_root_window (data->screen);
   data->width = gdk_screen_get_width (data->screen);
   data->height = gdk_screen_get_height (data->screen);
@@ -1586,7 +1589,7 @@ app_parse_args (int argc, char **argv, GromitData *data)
          }
        else
          {
-           g_printerr ("Unknown Option: \"%s\"\n", arg);
+           g_printerr ("Unknown Option for Gromit startup: \"%s\"\n", arg);
            wrong_arg = TRUE;
          }
 
@@ -1601,7 +1604,7 @@ app_parse_args (int argc, char **argv, GromitData *data)
          }
        else
          {
-           g_printerr ("Please see the Gromit README for the correct usage\n");
+           g_printerr ("Please see the Gromit manpage for the correct usage\n");
            exit (1);
          }
      }
@@ -1648,7 +1651,7 @@ main_client (int argc, char **argv, GromitData *data)
          }
        else
          {
-           g_printerr ("Unknown Option: \"%s\"\n", arg);
+           g_printerr ("Unknown Option to control a running Gromit process: \"%s\"\n", arg);
            wrong_arg = TRUE;
          }
 
@@ -1660,7 +1663,7 @@ main_client (int argc, char **argv, GromitData *data)
          }
        else
          {
-           g_printerr ("Please see the Gromit README for the correct usage\n");
+           g_printerr ("Please see the Gromit manpage for the correct usage\n");
            return 1;
          }
      }
