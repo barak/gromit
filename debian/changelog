@@ -1,3 +1,9 @@
+gromit (20041213-4) unstable; urgency=low
+
+  * Updated Standards-Version to 3.6.2 (no changes)
+
+ -- Pierre Chifflier <chifflier@cpe.fr>  Mon, 12 Sep 2005 11:32:11 +0200
+
 gromit (20041213-3) unstable; urgency=low
 
   * Applied patch to fix bug on multihead displays (Closes: #302108)
