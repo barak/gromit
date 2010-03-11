@@ -685,7 +685,7 @@ paint (GtkWidget *win, GdkEventButton *ev, gpointer user_data)
 
   data->lastx = ev->x;
   data->lasty = ev->y;
-  data->motion_time = ev->time;
+  data->motion_time = ev->time + 1;
 
   if (ev->device->source == GDK_SOURCE_MOUSE)
     {
@@ -728,7 +728,7 @@ paintto (GtkWidget *win,
      gromit_select_tool (data, ev->device, ev->state);
 
   ret = gdk_device_get_history (ev->device, ev->window,
-                                data->motion_time, ev->time,
+                                data->motion_time, ev->time - 1,
                                 &coords, &nevents);
 
   /* g_printerr ("Got %d coords\n", nevents); */

@@ -1,3 +1,13 @@
+gromit (20041213-4.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Fix "Line appears from draw start to upper left corner of screen."
+    by restricting the time-range of the event-history.  Thanks to Rafael
+    Cunha de Almeida <rafael@kontesti.me>, who did the patch with
+    me. (Closes: #571748)
+
+ -- Marco Túlio Gontijo e Silva <marcot@debian.org>  Thu, 11 Mar 2010 16:14:30 -0300
+
 gromit (20041213-4) unstable; urgency=low
 
   * Updated Standards-Version to 3.6.2 (no changes)
