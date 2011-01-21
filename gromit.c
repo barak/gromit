@@ -995,10 +995,10 @@ parse_name (GScanner *scanner)
         {
           if (token == G_TOKEN_SYMBOL)
             {
-              if ((guint) scanner->value.v_symbol < 11)
-                 buttons |= 1 << ((guint) scanner->value.v_symbol - 1);
+              if ((gulong) scanner->value.v_symbol < 11)
+                 buttons |= 1 << ((gulong) scanner->value.v_symbol - 1);
               else
-                 modifier |= 1 << ((guint) scanner->value.v_symbol - 11);
+                 modifier |= 1 << ((gulong) scanner->value.v_symbol - 11);
             }
           else if (token == G_TOKEN_INT)
             {
@@ -1164,7 +1164,7 @@ parse_config (GromitData *data)
                 {
                   if (token == G_TOKEN_SYMBOL)
                     {
-                      if ((guint) scanner->value.v_symbol == 1)
+                      if ((gulong) scanner->value.v_symbol == 1)
                         {
                           token = g_scanner_get_next_token (scanner);
                           if (token != G_TOKEN_EQUAL_SIGN)
@@ -1180,7 +1180,7 @@ parse_config (GromitData *data)
                             }
                           width = (guint) (scanner->value.v_float + 0.5);
                         }
-                      else if ((guint) scanner->value.v_symbol == 2)
+                      else if ((gulong) scanner->value.v_symbol == 2)
                         {
                           token = g_scanner_get_next_token (scanner);
                           if (token != G_TOKEN_EQUAL_SIGN)
@@ -1219,7 +1219,7 @@ parse_config (GromitData *data)
                             }
                           color = NULL;
                         }
-                      else if ((guint) scanner->value.v_symbol == 3)
+                      else if ((gulong) scanner->value.v_symbol == 3)
                         {
                           token = g_scanner_get_next_token (scanner);
                           if (token != G_TOKEN_EQUAL_SIGN)
