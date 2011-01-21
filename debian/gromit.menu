@@ -1,6 +1,6 @@
 ?package(gromit):					\
 	needs="X11"					\
-	section="Apps/Graphics"				\
+	section="Applications/Graphics"			\
 	title="Gromit"					\
 	command="/usr/bin/gromit"			\
 	description="On screen display annotator"	\
