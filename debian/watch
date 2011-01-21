@@ -1,4 +1,2 @@
-version=2
-	http://www.home.unix-ag.org/simon/gromit/			\
-	(?:.*/)?gromit-?_?([\w+\d+\.]+|\d+)(\.tar|\.tgz)(\.gz|\.bz2|)	\
-	debian uupdate
+version=3
+http://www.home.unix-ag.org/simon/gromit/ ./gromit-(\d*)\.tar\.gz
