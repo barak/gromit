@@ -404,29 +404,6 @@ gromit_acquire_grab (GromitData *data)
 }
 
 
-void
-gromit_toggle_grab (GromitData *data)
-{
-  if (data->hard_grab)
-    gromit_release_grab (data);
-  else
-    gromit_acquire_grab (data);
-}
-
-
-void
-gromit_clear_screen (GromitData *data)
-{
-  gdk_gc_set_foreground (data->shape_gc, data->transparent);
-  gdk_draw_rectangle (data->shape, data->shape_gc, 1,
-                      0, 0, data->width, data->height);
-  gtk_widget_shape_combine_mask (data->win, data->shape, 0,0);
-  if (!data->hard_grab)
-    gromit_hide_window (data);
-  data->painted = 0;
-}
-
-
 gint
 reshape (gpointer user_data)
 {
@@ -446,6 +423,32 @@ reshape (gpointer user_data)
         }
     }
   return 1;
+}
+
+
+void
+gromit_toggle_grab (GromitData *data)
+{
+  if (data->hard_grab) {
+    gtk_timeout_remove (data->timeout_id);
+    gromit_release_grab (data);
+  } else {
+    data->timeout_id = gtk_timeout_add (20, reshape, data);
+    gromit_acquire_grab (data);
+  }
+}
+
+
+void
+gromit_clear_screen (GromitData *data)
+{
+  gdk_gc_set_foreground (data->shape_gc, data->transparent);
+  gdk_draw_rectangle (data->shape, data->shape_gc, 1,
+                      0, 0, data->width, data->height);
+  gtk_widget_shape_combine_mask (data->win, data->shape, 0,0);
+  if (!data->hard_grab)
+    gromit_hide_window (data);
+  data->painted = 0;
 }
 
 
@@ -1430,7 +1433,7 @@ setup_main_app (GromitData *data, gboolean activate)
   data->painted = 0;
   gromit_hide_window (data);
 
-  data->timeout_id = gtk_timeout_add (20, reshape, data);
+  /* data->timeout_id = gtk_timeout_add (20, reshape, data); */
   data->coordlist = NULL;
   data->modified = 0;
 
