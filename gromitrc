@@ -1,0 +1,26 @@
+# Configuration file for gromit
+
+# Tools
+
+"roter Stift" = PEN (size=7 color="red");
+"blauer Stift" = "roter Stift" (color="blue");
+"gelber Stift" = "roter Stift" (color="yellow");
+"rosa Stift" = "roter Stift" (color="#ff00aa");
+"Radierer" = ERASER (size = 75);
+"grüner Marker" = RECOLOR (color = "Limegreen");
+
+
+# Mapping to Pointing devices
+
+"Core Pointer" = "roter Stift";
+"Core Pointer"[SHIFT] = "blauer Stift";
+"Core Pointer"[CONTROL] = "gelber Stift";
+"Core Pointer"[META] = "rosa Stift";
+"Core Pointer"[2] = "grüner Marker";
+"Core Pointer"[3] = "Radierer";
+"Core Pointer"[3 SHIFT] = "Radierer" (size = 150);
+"Pen1" = "roter Stift" (size = 15);
+"Pen1"[SHIFT] = "blauer Stift";
+"Pen1"[CONTROL] = "Radierer";
+"Eraser" = "Radierer";
+

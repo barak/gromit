@@ -1,0 +1,70 @@
+/* GRaphics Over MIscellaneous Things RC file */
+/* byGSR 2001-12-11 */
+
+/* Pens */
+"red Pen" = PEN (size = 7 color = "red");
+"green Pen" = PEN (size = 7 color = "green");
+"blue Pen" = PEN (size = 7 color = "blue");
+# "yellow Pen" = PEN (size = 7 color = "yellow");
+
+/* Quill */
+"black Quill" = PEN (size = 4 color = "black");
+"gray Quill" = PEN (size = 4 color = "gray50");
+"white Quill" = PEN (size = 4 color = "white");
+
+/* Smart pens */
+"red SmartPen" = PEN (size = 7 color = "red" arrowsize = 7);
+"green SmartPen" = PEN (size = 7 color = "green" arrowsize = 7);
+"blue SmartPen" = PEN (size = 7 color = "blue" arrowsize = 7);
+
+/* Markers */
+"red Marker" = RECOLOR (size = 15 color = "red");
+"green Marker" = RECOLOR (size = 15 color = "green");
+"blue Marker" = RECOLOR (size = 15 color = "blue");
+# "yellow Marker" = RECOLOR (size = 15 color = "yellow");
+
+/* Erasers */
+"big Eraser" = ERASER (size = 75);
+"medium Eraser" = ERASER (size = 50);
+"small Eraser" = ERASER (size = 25);
+# "tiny Eraser" = ERASER (size = 10);
+
+/* Bindings */
+# Lines in MB1, with shift it creates arrows
+"Core Pointer"[Button1] = "red Pen";
+"Core Pointer"[Button1, CONTROL] = "green Pen";
+"Core Pointer"[Button1, META] = "blue Pen";
+"Core Pointer"[Button1, SHIFT] = "red SmartPen";
+"Core Pointer"[Button1, SHIFT, CONTROL] = "green SmartPen";
+"Core Pointer"[Button1, SHIFT, META] = "blue SmartPen";
+
+# Recolor in MB2
+"Core Pointer"[Button2] = "red Marker";
+"Core Pointer"[Button2, CONTROL] = "green Marker";
+"Core Pointer"[Button2, META] = "blue Marker";
+
+# Erase in MB3
+"Core Pointer"[Button3] = "big Eraser";
+"Core Pointer"[Button3, CONTROL] = "medium Eraser";
+"Core Pointer"[Button3, META] = "small Eraser";
+
+# It paints pretty nice this way
+"WacomStylus0"[Button1] = "black Quill";
+"WacomStylus0"[Button1, CONTROL] = "gray Quill";
+"WacomStylus0"[Button1, META] = "white Quill";
+
+# I have only one side button in the Wacom pen
+"WacomStylus0"[Button2] = "red Marker";
+"WacomStylus0"[Button2, CONTROL] = "green Marker";
+"WacomStylus0"[Button2, META] = "blue Marker";
+
+# I use the eraser tip as MB4
+"WacomStylus0"[Button4] = "big Eraser";
+"WacomStylus0"[Button4, CONTROL] = "medium Eraser";
+"WacomStylus0"[Button4, META] = "small Eraser";
+
+# Or remapped to MB3
+"WacomStylus0"[Button3] = "big Eraser";
+"WacomStylus0"[Button3, CONTROL] = "medium Eraser";
+"WacomStylus0"[Button3, META] = "small Eraser";
+

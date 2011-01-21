@@ -1,0 +1,51 @@
+2004-12-13  Simon Budig  <simon@gimp.org>
+	
+	* gromit.c: - Make activation on startup possible (gromit -a)
+	- add configure option for the key to grab (gromit -k "Pause")
+
+	* README: Adjusted.
+
+2004-10-14  Simon Budig  <simon@gimp.org>
+
+	* gromit.c: - Fix pressure sensitivity
+	- massive indentation madness.
+
+	* README: Adjusted to the XGrabKey change.
+
+2004-10-14  Simon Budig  <simon@gimp.org>
+
+	* gromit.c: - Use XGrabKey to grab the "Pause" key of the keyboard.
+	Use it to control gromits functionality. The selection-hack is no
+	longer needed (but still available).
+
+2004-10-14  Simon Budig  <simon@gimp.org>
+
+	* gromit.c: - Applied a (slightly modified) patch from
+	Bastien Nocera (hadess@hadess.net) to port gromit to GTK+ 2. Still
+	needs some testing with a Tablet.
+	- removed deprecated stuff
+	- changed the activation of input devices, having mice as extended
+	input devices apparently confuses GDK.
+
+2003-03-04  Simon Budig  <simon@gimp.org>
+
+	* gromit.c: Make sure that the arrowhead is connected to the line.
+	Draw black outline around the arrowhead.
+	Have just one global last coordinate. Tackles some problems when
+	switching tools while drawing.
+
+2001-12-10  Simon Budig  <simon@gimp.org>
+
+	* README
+	* gromit.c:  Implemented Arrowheads,
+		     changed Name of resourcefile to "~/.gromitrc"
+
+2001-02-26  Simon Budig  <simon@gimp.org>
+	
+	* */* Sorry, no real changelog.
+
+2000-08-28  Simon Budig  <simon@gimp.org>
+
+        * */* First version
+
+
