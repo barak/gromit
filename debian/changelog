@@ -4,6 +4,7 @@ gromit (20041213-5) unstable; urgency=low
     - take over maintenance of package
     - bump standards version
     - point to collab-maint git repo
+    - pointer to home page
   * Watch file to version 3 (debian/watch)
   * Update to dh8 (debian/rules etc)
   * Accept NMU patch
@@ -11,7 +12,7 @@ gromit (20041213-5) unstable; urgency=low
   * Point to correct version of GPL (debian/copyright)
   * Update to new heirarchy (debian/gromit.menu)
 
- -- Barak A. Pearlmutter <bap@debian.org>  Fri, 21 Jan 2011 15:10:57 +0000
+ -- Barak A. Pearlmutter <bap@debian.org>  Fri, 21 Jan 2011 15:17:42 +0000
 
 gromit (20041213-4.1) unstable; urgency=medium
 
