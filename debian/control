@@ -3,7 +3,7 @@ Section: x11
 Priority: optional
 Maintainer: Pierre Chifflier <chifflier@cpe.fr>
 Uploaders: Barak A. Pearlmutter <bap@debian.org>
-Build-Depends: debhelper (>= 4.0.0), libgtk2.0-dev
+Build-Depends: debhelper (>= 8), libgtk2.0-dev
 Standards-Version: 3.9.1
 Vcs-Git: git://git.debian.org/git/collab-maint/gromit.git
 Vcs-Browser: http://git.debian.org/?p=collab-maint/gromit.git
