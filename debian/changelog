@@ -1,7 +1,7 @@
 gromit (20041213-5) unstable; urgency=low
 
   * Changes to packaging info (debian/control)
-    - take over maintenance of package
+    - add BAP as uploader
     - bump standards version
     - point to collab-maint git repo
     - pointer to home page
