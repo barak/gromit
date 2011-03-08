@@ -1,3 +1,10 @@
+gromit (20041213-6) unstable; urgency=low
+
+  * Simplify Makefile
+  * Add -Wno-pointer-sign quashing pointless signed vs unsigned char * warnings
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Tue, 08 Mar 2011 11:34:24 +0000
+
 gromit (20041213-5) unstable; urgency=low
 
   * Changes to packaging info (debian/control)
