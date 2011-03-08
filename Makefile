@@ -1,10 +1,13 @@
 all: gromit
 
-proptest: proptest.c
-	gcc -o proptest proptest.c `gtk-config --libs --cflags`
+CPPFLAGS += -DG_DISABLE_DEPRECATED
+CPPFLAGS += -DGDK_PIXBUF_DISABLE_DEPRECATED -DGDK_DISABLE_DEPRECATED
+CPPFLAGS += -DPANGO_DISABLE_DEPRECATED
+CPPFLAGS += -DGDK_MULTIHEAD_SAFE -DGTK_MULTIHEAD_SAFE
 
-propertywatch: propertywatch.c
-	gcc -o propertywatch propertywatch.c `gtk-config --libs --cflags`
+CFLAGS += -Wall
+CFLAGS += -O2
+CFLAGS += -g
 
-gromit: gromit.c Makefile
-	gcc -DG_DISABLE_DEPRECATED -DGDK_PIXBUF_DISABLE_DEPRECATED -DGDK_DISABLE_DEPRECATED -DPANGO_DISABLE_DEPRECATED -DGDK_MULTIHEAD_SAFE -DGTK_MULTIHEAD_SAFE -o gromit gromit.c -Wall `pkg-config --libs --cflags gtk+-2.0 x11`
+CFLAGS += $(shell pkg-config --cflags gtk+-2.0 x11)
+LOADLIBES += $(shell pkg-config --libs gtk+-2.0 x11)
