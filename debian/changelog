@@ -1,3 +1,11 @@
+gromit (20041213-7) unstable; urgency=low
+
+  * make --debug a bit useful
+  * brute-force fix for horz/vert bug by squashing zeros,
+    and revert performance-sapping fix from NMU -4.1
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Wed, 09 Mar 2011 20:38:33 +0000
+
 gromit (20041213-6) unstable; urgency=low
 
   * Simplify Makefile
