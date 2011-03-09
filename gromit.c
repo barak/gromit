@@ -29,6 +29,8 @@
 #include <math.h>
 #include <stdlib.h>
 
+int debug = 0;
+
 #include "paint_cursor.xbm"
 #include "paint_cursor_mask.xbm"
 #include "erase_cursor.xbm"
@@ -532,9 +534,12 @@ gromit_draw_line (GromitData *data, gint x1, gint y1,
 {
   GdkRectangle rect;
 
+  if (debug) fprintf(stderr, "line (%d,%d) (%d,%d)\n", x1, y1, x2, y2);
+
   // strange left-corner line bugfix
-  if ( (x1 == 0 && y1 == 0) || ((x2 == 0 && y2 == 0)))
+  if (!x1 || !y1 || !x2 || !y2)
     {
+      if (debug) fprintf(stderr, "X\n");
       return;
     }
 
@@ -1548,7 +1553,6 @@ app_parse_args (int argc, char **argv, GromitData *data)
    gchar    *arg;
    gboolean  wrong_arg = FALSE;
    gboolean  activate = FALSE;
-   gboolean  dump = FALSE;
 
    data->hot_keyval = "Pause";
    data->hot_keycode = 0;
@@ -1564,7 +1568,7 @@ app_parse_args (int argc, char **argv, GromitData *data)
        else if (strcmp (arg, "-d") == 0 ||
                 strcmp (arg, "--debug") == 0)
          {
-           dump = TRUE;
+           debug += 1;
          }
        else if (strcmp (arg, "-k") == 0 ||
                 strcmp (arg, "--key") == 0)
@@ -1604,7 +1608,7 @@ app_parse_args (int argc, char **argv, GromitData *data)
 
        if (!wrong_arg)
          {
-          if (dump)
+          if (debug >= 2)
             {
               g_printerr ("\n-----------------------------\n");
               g_hash_table_foreach (data->tool_config, parse_print_help, NULL);
