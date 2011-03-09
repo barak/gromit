@@ -533,15 +533,15 @@ gromit_draw_line (GromitData *data, gint x1, gint y1,
                   gint x2, gint y2)
 {
   GdkRectangle rect;
+  static gint prev_x1=0, prev_y1=0, prev_x2=0, prev_y2=0;
 
   if (debug) fprintf(stderr, "line (%d,%d) (%d,%d)\n", x1, y1, x2, y2);
 
   // strange left-corner line bugfix
-  if (!x1 || !y1 || !x2 || !y2)
-    {
-      if (debug) fprintf(stderr, "X\n");
-      return;
-    }
+  if (x1) prev_x1 = x1; else x1 = prev_x1;
+  if (y1) prev_y1 = y1; else y1 = prev_y1;
+  if (x2) prev_x2 = x2; else x2 = prev_x2;
+  if (y2) prev_y2 = y2; else y2 = prev_y2;
 
   rect.x = MIN (x1,x2) - data->maxwidth / 2;
   rect.y = MIN (y1,y2) - data->maxwidth / 2;
