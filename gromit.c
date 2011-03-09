@@ -532,6 +532,12 @@ gromit_draw_line (GromitData *data, gint x1, gint y1,
 {
   GdkRectangle rect;
 
+  // strange left-corner line bugfix
+  if ( (x1 == 0 && y1 == 0) || ((x2 == 0 && y2 == 0)))
+    {
+      return;
+    }
+
   rect.x = MIN (x1,x2) - data->maxwidth / 2;
   rect.y = MIN (y1,y2) - data->maxwidth / 2;
   rect.width = ABS (x1-x2) + data->maxwidth;
