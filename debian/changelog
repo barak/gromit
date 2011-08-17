@@ -1,3 +1,12 @@
+gromit (20041213-8) unstable; urgency=low
+
+  * bump standards version
+  * silence lintian with single debian patch source format option
+  * silence lintian back slash dash man page hash whining
+  * silence some GCC warnings by dispabling -DGDK_DISABLE_DEPRECATED
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Wed, 17 Aug 2011 14:35:06 +0200
+
 gromit (20041213-7) unstable; urgency=low
 
   * make --debug a bit useful
