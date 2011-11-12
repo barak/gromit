@@ -15,3 +15,4 @@ CFLAGS += -g
 CFLAGS += $(shell pkg-config --cflags-only-other gtk+-2.0 x11)
 
 LOADLIBES += $(shell pkg-config --libs gtk+-2.0 x11)
+LOADLIBES += -lm
