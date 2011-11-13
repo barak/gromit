@@ -1,4 +1,5 @@
-gromitrc etc/gromit
-gromit usr/bin
-debian/gromit.xpm usr/share/pixmaps
-debian/gromit.svg usr/share/icons/hicolor/scalable/apps/
+gromitrc		/etc/gromit/
+gromit			/usr/bin/
+debian/gromit.xpm	/usr/share/pixmaps/
+debian/gromit.svg	/usr/share/icons/hicolor/scalable/apps/
+debian/gromit.desktop	/usr/share/applications/
