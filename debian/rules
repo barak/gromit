@@ -1,3 +1,10 @@
 #!/usr/bin/make -f
 %:
 	dh $@ --parallel
+
+debian/gromit_32.png:  debian/gromit.svg; rsvg-convert -w  32 -h  32 $< > $@
+debian/gromit_64.png:  debian/gromit.svg; rsvg-convert -w  64 -h  64 $< > $@
+debian/gromit_128.png: debian/gromit.svg; rsvg-convert -w 128 -h 128 $< > $@
+
+debian/gromit.xpm: debian/gromit_32.png
+	convert $< $@
