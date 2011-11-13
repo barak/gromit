@@ -1,3 +1,12 @@
+gromit (20041213-9) unstable; urgency=low
+
+  * create and install scalable icon
+  * refresh xpm icon from scalable icon
+  * add gromit.desktop file
+  * Makefile tweak to link math library
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Sun, 13 Nov 2011 19:53:59 +0000
+
 gromit (20041213-8) unstable; urgency=low
 
   * bump standards version
